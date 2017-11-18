@@ -1,6 +1,5 @@
 FROM jenkins/jnlp-slave:alpine
 
-RUN apk add --no-cache curl && \
-    curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
+RUN wget https://storage.googleapis.com/kubernetes-release/release/v1.8.3/bin/linux/amd64/kubectl && \
     chmod +x ./kubectl && \
-    sudo mv ./kubectl /usr/local/bin/kubectl
+    mv ./kubectl /usr/local/bin/kubectl
