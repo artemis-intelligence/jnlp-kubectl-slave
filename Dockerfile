@@ -2,7 +2,7 @@ FROM jenkins/jnlp-slave:alpine
 
 USER root
 
-RUN wget https://storage.googleapis.com/kubernetes-release/release/v1.8.3/bin/linux/amd64/kubectl && \
+RUN curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl" && \
     chmod +x ./kubectl && \
     mv ./kubectl /usr/local/bin/kubectl
 
