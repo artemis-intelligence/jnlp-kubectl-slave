@@ -12,4 +12,6 @@ RUN wget -O- "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master
     && chmod +x ./kustomize \
     && mv ./kustomize /usr/local/bin/kustomize
 
+RUN git lfs install
+
 USER jenkins
